@@ -1,5 +1,4 @@
 import { IPost } from "@/@types/postTypes";
-import RichText from "@/components/RichText";
 import { client } from "@/lib/contentful/client";
 import Image from "next/image";
 import React from "react";
