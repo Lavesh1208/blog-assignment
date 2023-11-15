@@ -1,8 +1,7 @@
 import { IPost } from "@/@types/postTypes";
 import PostCard from "@/components/PostCard";
 import { client } from "@/lib/contentful/client";
-import Image from "next/image";
-import Link from "next/link";
+import React from "react";
 
 const fetchAllPosts = async () => {
 	const res = await client.getEntries({
@@ -12,23 +11,21 @@ const fetchAllPosts = async () => {
 	return res.items;
 };
 
-const HomePage = async () => {
+const AllPostsPage = async () => {
 	const posts = (await fetchAllPosts()) as IPost[];
+
 	return (
 		<div>
-			<h1>Home Page</h1>
+			<h1>All Posts Page</h1>
 			<div className="posts">
-				{posts.slice(0, 3).map((post, index) => (
+				{posts.map((post, index) => (
 					<div key={index}>
 						<PostCard post={post} />
 					</div>
 				))}
 			</div>
-			<Link href="/posts" className="view-all-posts">
-				View All Posts
-			</Link>
 		</div>
 	);
 };
 
-export default HomePage;
+export default AllPostsPage;
