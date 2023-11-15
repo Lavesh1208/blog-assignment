@@ -14,7 +14,7 @@ const searchClient = algoliasearch(
 	"bab7d272cf6498cc351901d149b2b8ca"
 );
 
-function Hit({ hit }) {
+function Hit({ hit }: any) {
 	const { postImage, title, summary, author, slug, postContent } = hit.fields;
 	const router = useRouter();
 
